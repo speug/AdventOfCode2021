@@ -17,7 +17,8 @@ for bi in range(num_boards):
     rel_lines = lines[start_i:end_i]
     nums = np.zeros((5, 5))
     for ri in range(5):
-        nums[ri, :] = [int(x.strip()) for x in rel_lines[ri].split(' ') if x != '']
+        nums[ri, :] = [int(x.strip()) for x in rel_lines[ri].split(' ')
+                       if x != '']
     board = Board(5, nums)
     boards.append(board)
 
