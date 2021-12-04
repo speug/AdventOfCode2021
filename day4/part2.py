@@ -20,7 +20,6 @@ for bi in range(num_boards):
         nums[ri, :] = [int(x.strip()) for x in rel_lines[ri].split(' ') if x != '']
     board = Board(5, nums)
     boards.append(board)
-    # print(board)
 
 i = 0
 winners = np.ones(len(boards))
@@ -46,6 +45,3 @@ print(loser)
 print(f'Score: {loser.score()}')
 print(f'Final output = {loser.score()} * {num} = ' +
       f'{loser.score() * num}')
-
-
-# print(called_numbers)

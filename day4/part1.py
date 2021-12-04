@@ -20,7 +20,6 @@ for bi in range(num_boards):
         nums[ri, :] = [int(x.strip()) for x in rel_lines[ri].split(' ') if x != '']
     board = Board(5, nums)
     boards.append(board)
-    # print(board)
 
 winner = False
 i = 0
