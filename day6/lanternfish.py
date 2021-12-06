@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def update_fishes(current):
+def update_fish(current):
     # check how many fish are giving birth
     births = current[0]
     # shift population counts by one to the left (day proceeds)
@@ -24,6 +24,6 @@ for f in fish_input:
 max_t = 256
 for i in range(max_t):
     # print(fish)
-    fish = update_fishes(fish)
+    fish = update_fish(fish)
 print(f'Fish population by date since birth: {fish}')
 print(f'Total fishes: {np.sum(fish)}')
