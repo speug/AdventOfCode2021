@@ -11,15 +11,16 @@ distances2 = np.copy(distances)
 dist_range = np.arange(0, max_x+1)
 
 
-def increasing_cost(n):
+def increasing_cost(d):
     # the fuel cost is just the triangular number of distance
-    return n * (n + 1) // 2
+    # trig = n * n + 1 // 2
+    return np.floor_divide(np.multiply(d, (d + 1)), 2)
 
 
 for i in range(num_crabs):
     d_i = np.abs(dist_range - positions[i])
     distances[:, i] = d_i
-    distances2[:, i] = np.array([increasing_cost(x) for x in d_i], dtype=int)
+    distances2[:, i] = increasing_cost(d_i)
 
 opt_pos1 = np.argmin(distances.sum(axis=1))
 opt_pos2 = np.argmin(distances2.sum(axis=1))
