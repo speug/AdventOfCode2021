@@ -19,8 +19,7 @@ def increasing_cost(n):
 for i in range(num_crabs):
     d_i = np.abs(dist_range - positions[i])
     distances[:, i] = d_i
-    vector_cost = np.vectorize(increasing_cost)
-    distances2[:, i] = vector_cost(d_i)
+    distances2[:, i] = np.array([increasing_cost(x) for x in d_i], dtype=int)
 
 opt_pos1 = np.argmin(distances.sum(axis=1))
 opt_pos2 = np.argmin(distances2.sum(axis=1))
