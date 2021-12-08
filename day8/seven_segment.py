@@ -26,7 +26,8 @@ def find_by_intersection(a, int_size, diag):
 
 
 def decode_digits(diag):
-    # decoding by intersection size
+    # decoding by intersection size (the following intersection have unique
+    # sizes)
     # 4 ∩ 9 => 4
     # 9 ∩ 2 => 4
     # 2 ∩ 5 => 3
