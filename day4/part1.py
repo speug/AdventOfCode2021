@@ -36,6 +36,3 @@ print(winner)
 print(f'Score: {winner.score()}')
 print(f'Final output = {winner.score()} * {num} = ' +
       f'{winner.score() * num}')
-
-
-# print(called_numbers)

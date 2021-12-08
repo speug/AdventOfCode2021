@@ -9,6 +9,9 @@ class Board:
         self.marked = np.zeros((dim, dim))
 
     def mark(self, number):
+        """Check for the number on this Board.
+           Returns True if the addition of the number resulted in a win,
+           otherwise False."""
         if number not in self.numbers:
             return False
         else:
@@ -16,20 +19,21 @@ class Board:
             return self.check_for_win()
 
     def check_for_win(self):
-        # check rows
         for i in range(self.dim):
+            # check rows
             if all(self.marked[i, :] == 1):
                 return True
+            # check columns
             elif all(self.marked[:, i] == 1):
                 return True
         return False
 
     def score(self):
+        """Calculate score for this board (sum of unmarked numbers)."""
         if not self.check_for_win():
             return 0
         else:
-            mask = 1 - self.marked
-            mask = mask == 1
+            mask = self.marked == 0
             return np.sum(self.numbers[mask])
 
     def __str__(self):
