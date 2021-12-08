@@ -3,6 +3,7 @@ with open('input', 'r') as f:
 
 n_sig = len(lines)
 signals = [None] * n_sig
+# here, "free" refers to numbers we can decode for free based on size
 free_digits = [1, 4, 7, 8]
 len_free = [2, 4, 3, 7]
 num_free = 0
@@ -33,7 +34,7 @@ def decode_digits(diag):
     # 6 ∩ 0 => 5
     # 6 ∩ 3 => 4
     counts = {len(x): x for x in diag}
-    # first, retrieve free numbers
+    # first, retrieve "free" numbers
     out = {
         1: next(v for k, v in counts.items() if k == 2),
         4: next(v for k, v in counts.items() if k == 4),
@@ -57,10 +58,7 @@ def decode_digits(diag):
 decoded = [None] * n_sig
 for i in range(n_sig):
     diag, output = signals[i]
-    # print(diag)
-    # print(output)
     decoder = decode_digits(diag)
-    # print(decoder)
     decoded_output = int(''.join([str(decoder[x]) for x in output]))
     decoded[i] = decoded_output
 print(f'Sum of decoded: {sum(decoded)}')
