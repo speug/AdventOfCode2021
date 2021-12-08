@@ -13,7 +13,7 @@ dist_range = np.arange(0, max_x+1)
 
 def increasing_cost(d):
     # the fuel cost is just the triangular number of distance
-    # trig = n * n + 1 // 2
+    # trig = [n * (n + 1)] / 2
     return np.floor_divide(np.multiply(d, (d + 1)), 2)
 
 
