@@ -50,9 +50,17 @@ error_scores = [scores[x] for x in errors]
 print(f'Syntax score: {sum(error_scores)}')
 
 # part 2
+# filter out erroneous lines from above
 lines = [x for i, x in enumerate(lines) if i not in bad_lines]
 corrections = []
 for i in range(len(lines)):
+    # For each line:
+    # 1. search all opening character indices
+    # 2. for each opening character, look for the first closing pair.
+    #    Remove that closing character from the set of available closing chars
+    #    and move to the next opening character
+    # 3. If no closing character was found, append the correct closing char
+    #    to list of corrections.
     line = lines[i]
     opening_indices = [i for i in range(len(line)) if line[i] in correct_pairs]
     line_corrections = []
