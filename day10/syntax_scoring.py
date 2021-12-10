@@ -69,7 +69,8 @@ for i in range(len(lines)):
         has_closing = False
         for i in range(op_idx, len(line)):
             opening = line[op_idx]
-            if (line[i] == correct_pairs[opening]) and (i not in used_closings):
+            if ((line[i] == correct_pairs[opening]) and
+                    (i not in used_closings)):
                 used_closings.append(i)
                 has_closing = True
                 break
