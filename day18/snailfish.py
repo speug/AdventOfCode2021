@@ -58,8 +58,7 @@ class SnailfishNumber():
         # need dfs for finding leftmost pair of depth > 3
         pass
 
-
-    def add(self, other):
+    def __add__(self, other):
         return SnailfishNumber(self, other)
 
     def __str__(self):
